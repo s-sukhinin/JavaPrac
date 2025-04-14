@@ -1,6 +1,7 @@
 package ru.msu.cs.javaprac.DAO.impl;
 
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 import ru.msu.cs.javaprac.DAO.ICommonDAO;
 import ru.msu.cs.javaprac.DAO.IPostDAO;
 import ru.msu.cs.javaprac.models.Attachment;
@@ -11,6 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
+@Repository
 public class PostDAO extends CommonDAO<Post> implements IPostDAO
 {
     public PostDAO()

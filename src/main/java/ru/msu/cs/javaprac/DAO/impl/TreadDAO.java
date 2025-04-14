@@ -2,6 +2,7 @@ package ru.msu.cs.javaprac.DAO.impl;
 
 import lombok.NonNull;
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 import ru.msu.cs.javaprac.DAO.IThreadDAO;
 import ru.msu.cs.javaprac.models.Post;
 import ru.msu.cs.javaprac.models.Thread;
@@ -9,6 +10,7 @@ import ru.msu.cs.javaprac.models.Thread;
 import javax.persistence.criteria.*;
 import java.util.List;
 
+@Repository
 public class TreadDAO extends CommonDAO<Thread> implements IThreadDAO
 {
     public TreadDAO()

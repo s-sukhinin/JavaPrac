@@ -3,6 +3,7 @@ package ru.msu.cs.javaprac.DAO.impl;
 import lombok.NonNull;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 import ru.msu.cs.javaprac.DAO.ICategoryDAO;
 import ru.msu.cs.javaprac.models.Category;
 
@@ -12,6 +13,7 @@ import ru.msu.cs.javaprac.models.User;
 import javax.persistence.criteria.*;
 import java.util.List;
 
+@Repository
 public class CategoryDAO extends CommonDAO<Category> implements ICategoryDAO
 {
     public CategoryDAO()

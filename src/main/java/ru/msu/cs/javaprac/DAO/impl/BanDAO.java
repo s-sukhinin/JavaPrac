@@ -1,6 +1,7 @@
 package ru.msu.cs.javaprac.DAO.impl;
 
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 import ru.msu.cs.javaprac.DAO.IBanDAO;
 import ru.msu.cs.javaprac.DAO.ICommonDAO;
 import ru.msu.cs.javaprac.models.Ban;
@@ -14,6 +15,7 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.List;
 
+@Repository
 public class BanDAO extends CommonDAO<Ban> implements IBanDAO
 {
     public BanDAO()

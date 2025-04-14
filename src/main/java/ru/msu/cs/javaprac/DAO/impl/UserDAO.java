@@ -2,6 +2,7 @@ package ru.msu.cs.javaprac.DAO.impl;
 
 import lombok.NonNull;
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 import ru.msu.cs.javaprac.DAO.IUserDAO;
 import ru.msu.cs.javaprac.models.Post;
 import ru.msu.cs.javaprac.models.Thread;
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
 
+@Repository
 public class UserDAO extends  CommonDAO<User> implements IUserDAO
 {
     public UserDAO()

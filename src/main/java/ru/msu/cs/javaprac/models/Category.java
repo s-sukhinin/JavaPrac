@@ -14,7 +14,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @ToString
 @NoArgsConstructor
-public class Category {
+public class Category implements CommonEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

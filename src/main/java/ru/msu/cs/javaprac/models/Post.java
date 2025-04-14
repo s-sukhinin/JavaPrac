@@ -14,7 +14,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @ToString
 @Table(name = "posts")
-public class Post {
+public class Post implements CommonEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

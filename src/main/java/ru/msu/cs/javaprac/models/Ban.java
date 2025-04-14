@@ -14,7 +14,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Table(name = "bans")
-public class Ban {
+public class Ban implements CommonEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +34,8 @@ public class Ban {
     @JoinColumn(name = "category")
     private Category category;
 
-    @Column(name = "banned_at")
+    @Column(nullable = false, name = "banned_at")
+    @NonNull
     private Timestamp bannedAt;
 
     @Column(name = "banned_until")

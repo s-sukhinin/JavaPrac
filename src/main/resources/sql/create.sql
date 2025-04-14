@@ -51,8 +51,8 @@ CREATE TABLE bans (
                       user_id INT NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
                       thread INT REFERENCES threads(thread_id) ON DELETE CASCADE ,
                       category INT REFERENCES categories(category_id) ON DELETE CASCADE ,
-                      banned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                      banned_until TIMESTAMP,
+                      banned_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                      banned_until TIMESTAMP DEFAULT NULL,
                       ban_reason TEXT,
                       moderator INT REFERENCES users(user_id) ON DELETE SET NULL
 );

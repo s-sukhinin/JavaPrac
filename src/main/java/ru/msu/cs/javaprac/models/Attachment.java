@@ -14,7 +14,7 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @Table(name = "attachments")
-public class Attachment {
+public class Attachment implements CommonEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -14,7 +14,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public class Thread {
+public class Thread implements CommonEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

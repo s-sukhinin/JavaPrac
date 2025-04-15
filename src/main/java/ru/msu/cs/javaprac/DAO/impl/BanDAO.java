@@ -23,6 +23,7 @@ public class BanDAO extends CommonDAO<Ban> implements IBanDAO
         super(Ban.class);
     }
 
+    @Override
     public List<Ban> getActiveBansOfUser(User user)
     {
         try(Session session = sessionFactory.openSession())

@@ -26,7 +26,7 @@ public class TreadDAO extends CommonDAO<Thread> implements IThreadDAO
             CriteriaQuery<Thread> criteria = builder.createQuery(Thread.class);
             Root<Thread> root = criteria.from(Thread.class);
 
-            Predicate titleLike = builder.like(root.get("title"), "% " + title + "%");
+            Predicate titleLike = builder.like(root.get("title"), "%" + title + "%");
             criteria.select(root).where(titleLike);
 
             Sort(criteria, root, builder, order);

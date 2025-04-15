@@ -27,7 +27,7 @@ public class HibernateDataBaseConfig {
     {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(oraDataSource());
-        sessionFactory.setPackagesToScan("ru.msu.cmc.javaprac.models");
+        sessionFactory.setPackagesToScan("ru.msu.cs.javaprac.models");
 
         Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");

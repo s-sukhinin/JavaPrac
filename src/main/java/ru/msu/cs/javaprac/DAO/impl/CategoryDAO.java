@@ -30,7 +30,7 @@ public class CategoryDAO extends CommonDAO<Category> implements ICategoryDAO
             CriteriaQuery<Category> criteria = builder.createQuery(Category.class);
             Root<Category> root = criteria.from(Category.class);
 
-            Predicate titleLike = builder.like(root.get("title"), "% " + title + "%");
+            Predicate titleLike = builder.like(root.get("title"), "%" + title + "%");
             criteria.select(root).where(titleLike);
 
             Sort(criteria, root, builder, order);

@@ -11,15 +11,15 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:application-main.properties")
 public class HibernateDataBaseConfig {
     @Value("${driver}")
     private String DB_DRIVER;
     @Value("${url}")
     private String DB_URL;
-    @Value("${username}")
+    @Value("${db.username}")
     private String DB_USERNAME;
-    @Value("${password}")
+    @Value("${db.password}")
     private String DB_PASSWORD;
 
     @Bean

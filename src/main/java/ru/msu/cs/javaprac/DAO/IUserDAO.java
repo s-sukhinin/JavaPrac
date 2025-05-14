@@ -10,6 +10,7 @@ import java.util.List;
 public interface IUserDAO extends ICommonDAO<User>
 {
     List<User> getUsersByName(String userName, UsersSortOrder order);
+    User getUserByLogin(String login);
     List<User> getModerators(UsersSortOrder order);
     List<User> getCommonUsers(UsersSortOrder order);
 

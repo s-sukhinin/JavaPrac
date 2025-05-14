@@ -41,6 +41,21 @@ public class UserDAO extends  CommonDAO<User> implements IUserDAO
     }
 
     @Override
+    public User getUserByLogin(String login)
+    {
+        try (Session session = sessionFactory.openSession())
+        {
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<User> criteria = builder.createQuery(User.class);
+            Root<User> root = criteria.from(User.class);
+
+            criteria.select(root).where(builder.equal(root.get("login"), login));
+
+            return session.createQuery(criteria).uniqueResult();
+        }
+    }
+
+    @Override
     public List<User> getModerators(UsersSortOrder order)
     {
         try (Session session = sessionFactory.openSession())

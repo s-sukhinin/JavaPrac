@@ -18,18 +18,18 @@
 <body>
 <div th:fragment="siteHeader">
     <nav class="navbar navbar-dark bg-dark px-3">
-        <a class="navbar-brand d-flex align-items-center" th:href="@{/}">
+        <a class="navbar-brand d-flex align-items-center" id="mainPage" th:href="@{/}">
             <span>Главная</span>
         </a>
 
         <div class="ms-auto d-flex align-items-center">
             <div th:if="${user == null}">
-                <a class="btn btn-outline-light me-2" th:href="@{/login}">Вход</a>
-                <a class="btn btn-light" th:href="@{/register}">Регистрация</a>
+                <a class="btn btn-outline-light me-2" id="login" th:href="@{/login}">Вход</a>
+                <a class="btn btn-light" id="reg" th:href="@{/register}">Регистрация</a>
             </div>
             <div th:if="${user != null}">
-                <a class="btn btn-outline-light me-2" th:href="@{/profile}">Профиль</a>
-                <a class="btn btn-light" th:href="@{/logout}">Выход</a>
+                <a class="btn btn-outline-light me-2" id="profile" th:href="@{/profile}">Профиль</a>
+                <a class="btn btn-light" id="logout" th:href="@{/logout}">Выход</a>
             </div>
 
 

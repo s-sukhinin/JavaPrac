@@ -1,4 +1,4 @@
-package ru.msu.cs.javaprac.authentication;
+package ru.msu.cs.javaprac.support;
 
 import org.springframework.stereotype.Component;
 import ru.msu.cs.javaprac.models.User;
@@ -22,6 +22,8 @@ public class SessionStore
 
     public User getUserBySessionId(String sessionId)
     {
+        if (sessionId == null)
+            return null;
         return sessions.get(sessionId);
     }
 

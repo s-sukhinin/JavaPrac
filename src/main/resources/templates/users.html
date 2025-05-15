@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Пользователи</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="~{general :: siteHeader}"></div>
+<div class = "container mt-4">
+  <h2>Пользователи</h2>
+
+  <form th:action="@{/users}" method="get" class="row g-3 mb-4">
+
+    <div class = "row g-3 mb-4">
+      <div class="col-md-3">
+        <input type="text" class="form-control" name="name" placeholder="Имя" th:value="${filter.name}">
+      </div>
+
+      <div class="col-md-3">
+        <select class="form-select" name="role">
+          <option value="">Все роли</option>
+          <option value="USER" th:selected="${filter.role == 'USER'}">Пользователи</option>
+          <option value="MODERATOR" th:selected="${filter.role == 'MODERATOR'}">Модераторы</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="row g-3 mb-4">
+      <div class="col-md-3">
+        <label for="from" class="form-label">Дата регистрации (от)</label>
+        <input type="date" id="from" class="form-control" name="startDate" th:value="${filter.startDate}">
+      </div>
+
+      <div class="col-md-3">
+        <label for="to" class="form-label">Дата регистрации (до)</label>
+        <input type="date" id="to" class="form-control" name="endDate" th:value="${filter.endDate}">
+      </div>
+    </div>
+
+
+
+    <!--  <div class="col-md-4">-->
+    <!--    <select class="form-select" name="threadId">-->
+    <!--      <option value="">Выбрать тред</option>-->
+    <!--      <option th:each="thread : ${threads}"-->
+    <!--              th:value="${thread.id}"-->
+    <!--              th:text="${thread.title}"-->
+    <!--              th:selected="${filter.threadId == thread.id}"></option>-->
+    <!--    </select>-->
+    <!--  </div>-->
+    <div class="row g-3 mb-4">
+      <div class="col-md-3">
+        <label for="sort" class="form-label">Сортировка:</label>
+        <select id="sort" class="form-select" name="sort">
+          <option value="nameAsc" th:selected="${filter.sort == 'nameAsc'}">Имя ↑</option>
+          <option value="nameDesc" th:selected="${filter.sort == 'nameDesc'}">Имя ↓</option>
+          <option value="dateAsc" th:selected="${filter.sort == 'dateAsc'}">Дата ↑</option>
+          <option value="dateDesc" th:selected="${filter.sort == 'dateDesc'}">Дата ↓</option>
+        </select>
+      </div>
+    </div>
+
+
+
+    <div class="mb-3">
+      <label class="form-label fw-bold">Выберите треды</label>
+
+      <div th:each="category : ${categories}" class="mb-2">
+        <div class="form-check">
+<!--          <input class="form-check-input category-checkbox"-->
+<!--                 type="checkbox"-->
+<!--                 th:id="'category-' + ${category.getId()}"-->
+<!--                 th:data-category-id="${category.getId()}">-->
+          <label class="fw-bold" th:text="${category.getTitle()}"></label>
+        </div>
+
+        <div th:each="thread : ${threadsByCategory[category.getId()]}" class="ms-4">
+          <div class="form-check">
+            <input class="form-check-input thread-checkbox"
+                   type="checkbox"
+                   th:name="threads"
+                   th:value="${thread.getId()}"
+                   th:data-category-id="${category.getId()}"
+                   th:id="'thread-' + ${thread.getId()}"
+                   th:checked="${#lists.contains(filter.threads, thread.getId())}" />
+            <label class="form-check-label" th:for="'thread-' + ${thread.getId()}" th:text="${thread.getTitle()}"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 d-grid gap-2 d-md-flex justify-content-md-start">
+      <button type="submit" class="btn btn-primary">Фильтровать</button>
+      <a th:href="@{/users}" class="btn btn-secondary">Сбросить</a>
+    </div>
+
+  </form>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Имя</th>
+      <th>Роль</th>
+      <th>Дата регистрации</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+      <td th:text="${user.getName()}"></td>
+      <td th:text="${user.getRole()}"></td>
+      <td th:text="${#dates.format(user.getDateOfRegistration(), 'dd.MM.yyyy')}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+<div th:replace="~{general :: siteScript}"></div>
+</body>
+</html>

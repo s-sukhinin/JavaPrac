@@ -12,10 +12,15 @@
     <h1 class="text-center"> Форум </h1>
     <div class = "text-muted text-center"> Добро пожаловать! </div>
     <br>
+    <h5 class ="text-center">
+        <a th:href="'/users'">
+            Пользователи
+        </a>
+    </h5>
     <div class = "text-center">
         <h4>Разделы:<br></h4>
         <span th:if="${categories.isEmpty()}">пока пусто</span>
-        <a th:each="category, iter : ${categories}" th:href="'/category?categoryId=' + ${category.getId()}">
+        <a th:each="category, iter : ${categories}" th:href="'/category/' + ${category.getId()} + '?sort=default'">
             <span th:text="${category.getTitle()} "></span>
             <br th:if="${!iter.last}">
         </a>

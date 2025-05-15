@@ -6,8 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.msu.cs.javaprac.DAO.impl.CategoryDAO;
-import ru.msu.cs.javaprac.DAO.impl.UserDAO;
-import ru.msu.cs.javaprac.authentication.SessionStore;
+import ru.msu.cs.javaprac.support.SessionStore;
 import ru.msu.cs.javaprac.models.Category;
 import ru.msu.cs.javaprac.models.User;
 

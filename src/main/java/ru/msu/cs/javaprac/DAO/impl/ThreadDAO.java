@@ -11,9 +11,9 @@ import javax.persistence.criteria.*;
 import java.util.List;
 
 @Repository
-public class TreadDAO extends CommonDAO<Thread> implements IThreadDAO
+public class ThreadDAO extends CommonDAO<Thread> implements IThreadDAO
 {
-    public TreadDAO()
+    public ThreadDAO()
     {
         super(Thread.class);
     }

@@ -38,6 +38,7 @@ public class CategoryDAO extends CommonDAO<Category> implements ICategoryDAO
         }
     }
 
+    @Override
     public List<Thread> getThreadsInCategory(Category category, ContentSortOrder order)
     {
         try (Session session = sessionFactory.openSession())

@@ -1,4 +1,4 @@
-package ru.msu.cs.javaprac.authentication;
+package ru.msu.cs.javaprac.support;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

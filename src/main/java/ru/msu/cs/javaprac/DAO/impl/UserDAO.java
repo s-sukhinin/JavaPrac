@@ -128,6 +128,23 @@ public class UserDAO extends  CommonDAO<User> implements IUserDAO
         }
     }
 
+    @Override
+    public List<User> getAllUsers(UsersSortOrder order)
+    {
+        try (Session session = sessionFactory.openSession())
+        {
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<User> criteria = builder.createQuery(User.class);
+            Root<User> root = criteria.from(User.class);
+
+            criteria.select(root);
+
+            Sort(criteria, root, builder, order);
+
+            return session.createQuery(criteria).getResultList();
+        }
+    }
+
 
     private static void Sort(CriteriaQuery<User> criteria,
                              From<?, User> root,

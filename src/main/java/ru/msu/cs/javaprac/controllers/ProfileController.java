@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.msu.cs.javaprac.DAO.impl.UserDAO;
-import ru.msu.cs.javaprac.authentication.SessionStore;
-import ru.msu.cs.javaprac.authentication.UserService;
+import ru.msu.cs.javaprac.support.SessionStore;
+import ru.msu.cs.javaprac.support.UserService;
 import ru.msu.cs.javaprac.models.User;
 
 @Controller

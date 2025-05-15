@@ -43,12 +43,12 @@
 
     <ul>
         <li th:each="thread : ${threads}">
-            <a th:href="@{/thread/{id}(id=${thread.id})}" th:text="${thread.getTitle()}">Thread Title</a>
+            <a th:href="@{/thread/{id}(id=${thread.id})}" th:text="${thread.getTitle()}" th:id="'thread-' + ${thread.getId()}">Thread Title</a>
         </li>
     </ul>
 
     <div th:if="${user != null and !isBanned}">
-        <a th:href="@{/category/{id}/create-thread(id=${category.id})}" class="btn btn-primary">Создать новый тред</a>
+        <a th:href="@{/category/{id}/create-thread(id=${category.id})}" class="btn btn-primary" id="create_thread">Создать новый тред</a>
     </div>
     <div th:replace="~{general :: siteScript}"></div>
 </div>

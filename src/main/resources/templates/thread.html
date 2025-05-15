@@ -28,7 +28,7 @@
         </form>
     </div>
 
-    <ul>
+    <ul id="list_of_posts">
         <li th:each="message : ${messages}">
             <strong th:text="${message.getAuthor().getName()}">Author</strong>:
             <span th:text="${message.getContent()}">Message content</span>

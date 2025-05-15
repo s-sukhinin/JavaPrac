@@ -14,7 +14,7 @@
 
     <div class = "row g-3 mb-4">
       <div class="col-md-3">
-        <input type="text" class="form-control" name="name" placeholder="Имя" th:value="${filter.name}">
+        <input type="text" class="form-control" name="name" placeholder="Имя" th:value="${filter.name}" id="name_filter">
       </div>
 
       <div class="col-md-3">
@@ -76,7 +76,7 @@
     </div>
 
     <div class="col-md-4 d-grid gap-2 d-md-flex justify-content-md-start">
-      <button type="submit" class="btn btn-primary">Фильтровать</button>
+      <button type="submit" class="btn btn-primary" id="filter_btn">Фильтровать</button>
       <a th:href="@{/users}" class="btn btn-secondary">Сбросить</a>
     </div>
 

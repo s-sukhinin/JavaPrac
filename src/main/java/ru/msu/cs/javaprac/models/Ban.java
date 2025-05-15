@@ -26,11 +26,11 @@ public class Ban implements CommonEntity{
     @NonNull
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "thread")
     private Thread thread;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category")
     private Category category;
 
@@ -44,7 +44,7 @@ public class Ban implements CommonEntity{
     @Column(name = "ban_reason")
     private String reason;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "moderator")
     private User moderator;
 

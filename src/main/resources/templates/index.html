@@ -13,7 +13,7 @@
     <div class = "text-muted text-center"> Добро пожаловать! </div>
     <br>
     <h5 class ="text-center">
-        <a th:href="'/users'">
+        <a th:href="'/users'" id="users">
             Пользователи
         </a>
     </h5>
@@ -21,12 +21,12 @@
         <h4>Разделы:<br></h4>
         <span th:if="${categories.isEmpty()}">пока пусто</span>
         <a th:each="category, iter : ${categories}" th:href="'/category/' + ${category.getId()} + '?sort=default'">
-            <span th:text="${category.getTitle()} "></span>
+            <span th:text="${category.getTitle()} " th:id="'category-' + ${category.getId()}"></span>
             <br th:if="${!iter.last}">
         </a>
 
         <div th:if="${user != null and user.getRole() == roleType.MODERATOR}">
-            <a th:href="@{/create_category}" class="btn btn-primary">Создать новый раздел</a>
+            <a th:href="@{/create_category}" class="btn btn-primary" id="create_category">Создать новый раздел</a>
         </div>
     </div>
 

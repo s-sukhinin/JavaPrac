@@ -18,9 +18,15 @@
     <h2 th:text="${category.getTitle()}">Category Name</h2>
     <p th:text="${category.getDescription()}">Description</p>
 
+    <div th:if="${user != null and user.getRole() == roleType.MODERATOR}">
+        <form th:action="'/category/' + ${category.getId()} + '/delete'" method="post" onsubmit="return confirm('Удалить раздел?');">
+            <button type="submit" class="btn btn-danger">Удалить раздел</button>
+        </form>
+    </div>
+
     <form th:action="'/category/' + ${category.getId()}" method="get" class="row g-3 mb-4">
         <div class="row g-3 mb-4">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <label for="sort" class="form-label">Сортировка:</label>
                 <select id="sort" class="form-select" name="sort">
                     <option value="default" th:selected="${sort == 'default'}">По умолчанию</option>
@@ -41,7 +47,7 @@
         </li>
     </ul>
 
-    <div th:if="${user != null}">
+    <div th:if="${user != null and !isBanned}">
         <a th:href="@{/category/{id}/create-thread(id=${category.id})}" class="btn btn-primary">Создать новый тред</a>
     </div>
     <div th:replace="~{general :: siteScript}"></div>

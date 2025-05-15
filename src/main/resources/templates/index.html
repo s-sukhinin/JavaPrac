@@ -24,6 +24,10 @@
             <span th:text="${category.getTitle()} "></span>
             <br th:if="${!iter.last}">
         </a>
+
+        <div th:if="${user != null and user.getRole() == roleType.MODERATOR}">
+            <a th:href="@{/create_category}" class="btn btn-primary">Создать новый раздел</a>
+        </div>
     </div>
 
 </body>

@@ -25,7 +25,7 @@ public class Thread implements CommonEntity{
     @NonNull
     private String title;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "category")
     @NonNull
     private Category category;

@@ -26,7 +26,7 @@ public class Post implements CommonEntity{
     @NonNull
     private Thread thread;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "author")
     private User author;
 

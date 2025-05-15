@@ -38,18 +38,6 @@
         <input type="date" id="to" class="form-control" name="endDate" th:value="${filter.endDate}">
       </div>
     </div>
-
-
-
-    <!--  <div class="col-md-4">-->
-    <!--    <select class="form-select" name="threadId">-->
-    <!--      <option value="">Выбрать тред</option>-->
-    <!--      <option th:each="thread : ${threads}"-->
-    <!--              th:value="${thread.id}"-->
-    <!--              th:text="${thread.title}"-->
-    <!--              th:selected="${filter.threadId == thread.id}"></option>-->
-    <!--    </select>-->
-    <!--  </div>-->
     <div class="row g-3 mb-4">
       <div class="col-md-3">
         <label for="sort" class="form-label">Сортировка:</label>
@@ -69,10 +57,6 @@
 
       <div th:each="category : ${categories}" class="mb-2">
         <div class="form-check">
-<!--          <input class="form-check-input category-checkbox"-->
-<!--                 type="checkbox"-->
-<!--                 th:id="'category-' + ${category.getId()}"-->
-<!--                 th:data-category-id="${category.getId()}">-->
           <label class="fw-bold" th:text="${category.getTitle()}"></label>
         </div>
 
